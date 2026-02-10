@@ -11,12 +11,35 @@
   let compressProgress = 0;
   let compressError: string | null = null;
 
-  // Compression options
-  let maxSizeMB = 1;
-  let maxWidthOrHeight = 1920;
-  let initialQuality = 0.92;
-  let fileType = ""; // empty = keep original format
-  let useWebWorker = true;
+  // Compression mode: "auto" or "advanced"
+  let compressionMode: "auto" | "advanced" = "auto";
+
+  // Default values for auto mode
+  const AUTO_DEFAULTS = {
+    maxSizeMB: 1,
+    maxWidthOrHeight: 1920,
+    initialQuality: 0.92,
+    fileType: "", // empty = keep original format
+    useWebWorker: true,
+  };
+
+  // Advanced compression options (only used in advanced mode)
+  let maxSizeMB = AUTO_DEFAULTS.maxSizeMB;
+  let maxWidthOrHeight = AUTO_DEFAULTS.maxWidthOrHeight;
+  let initialQuality = AUTO_DEFAULTS.initialQuality;
+  let fileType = AUTO_DEFAULTS.fileType;
+  let useWebWorker = AUTO_DEFAULTS.useWebWorker;
+
+  // When switching to advanced mode, populate with default values
+  function handleModeChange() {
+    if (compressionMode === "advanced") {
+      maxSizeMB = AUTO_DEFAULTS.maxSizeMB;
+      maxWidthOrHeight = AUTO_DEFAULTS.maxWidthOrHeight;
+      initialQuality = AUTO_DEFAULTS.initialQuality;
+      fileType = AUTO_DEFAULTS.fileType;
+      useWebWorker = AUTO_DEFAULTS.useWebWorker;
+    }
+  }
 
   const fileTypeOptions = [
     { value: "", label: "Keep original format" },
@@ -41,16 +64,28 @@
     compressProgress = 0;
 
     try {
-      const options: CompressOptions = {
-        maxSizeMB,
-        maxWidthOrHeight: maxWidthOrHeight || undefined,
-        initialQuality,
-        fileType: fileType || undefined,
-        useWebWorker,
-        onProgress: (progress) => {
-          compressProgress = progress;
-        },
-      };
+      // Use auto defaults or advanced options based on mode
+      const options: CompressOptions = compressionMode === "auto" 
+        ? {
+            maxSizeMB: AUTO_DEFAULTS.maxSizeMB,
+            maxWidthOrHeight: AUTO_DEFAULTS.maxWidthOrHeight,
+            initialQuality: AUTO_DEFAULTS.initialQuality,
+            fileType: AUTO_DEFAULTS.fileType || undefined,
+            useWebWorker: AUTO_DEFAULTS.useWebWorker,
+            onProgress: (progress) => {
+              compressProgress = progress;
+            },
+          }
+        : {
+            maxSizeMB,
+            maxWidthOrHeight: maxWidthOrHeight || undefined,
+            initialQuality,
+            fileType: fileType || undefined,
+            useWebWorker,
+            onProgress: (progress) => {
+              compressProgress = progress;
+            },
+          };
 
       const result = await compressImage(originalFile, options);
       compressedFile = result;
@@ -118,6 +153,30 @@
       <div class="wiki-card">
       <h2 class="wiki-h2 mb-4">Compression Settings</h2>
       
+      <!-- Mode Selector -->
+      <div class="wiki-field mb-4">
+        <label for="compression-mode" class="wiki-label">Compression Mode</label>
+        <select 
+          id="compression-mode" 
+          class="wiki-select" 
+          bind:value={compressionMode}
+          on:change={handleModeChange}
+          disabled={isCompressing}
+        >
+          <option value="auto">Auto (Recommended)</option>
+          <option value="advanced">Advanced</option>
+        </select>
+        <div class="wiki-help">
+          {#if compressionMode === "auto"}
+            Uses optimized default settings for best balance between quality and file size.
+          {:else}
+            Customize compression parameters for fine-tuned control.
+          {/if}
+        </div>
+      </div>
+
+      <!-- Advanced Options (only shown in advanced mode) -->
+      {#if compressionMode === "advanced"}
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div class="wiki-field">
           <label for="max-size" class="wiki-label">Max File Size (MB)</label>
@@ -186,6 +245,7 @@
           <span class="text-sm text-zinc-700">Use Web Worker (recommended for better performance)</span>
         </label>
       </div>
+      {/if}
 
       <div class="mt-6">
         <button
