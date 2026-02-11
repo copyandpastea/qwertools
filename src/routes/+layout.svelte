@@ -19,8 +19,10 @@
 	/>
 
 	<main class="flex-1">
-		<div class="mx-auto p-6 space-y-6">
-			{@render children()}
+		<div class="mx-auto p-3 space-y-6">
+			<div class="wiki-card">
+				{@render children()}
+			</div>
 		</div>
 	</main>
 

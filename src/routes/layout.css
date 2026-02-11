@@ -29,8 +29,8 @@
   .wiki-panel { @apply bg-white border border-zinc-300 text-zinc-900; }
   .wiki-card  { @apply bg-white border border-zinc-300 text-zinc-900 p-4; }
 
-  .wiki-h1 { @apply text-[1.6rem] leading-tight font-serif border-b border-zinc-300 pb-2 mb-4; }
-  .wiki-h2 { @apply text-[1.25rem] leading-tight font-serif border-b border-zinc-200 pb-1 mb-3 mt-6; }
+  .wiki-h1 { @apply text-[1.6rem] leading-tight font-serif border-b border-zinc-300 pb-2 mb-2; }
+  .wiki-h2 { @apply text-[1.25rem] leading-tight font-serif border-b border-zinc-200 pb-1 mb-2; }
 
   .wiki-link { @apply text-blue-700 hover:underline }
 
