@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { goto } from "$app/navigation";
+
   interface Props {
     title: string;
     description: string;
@@ -22,7 +24,11 @@
         {/if}
       {/if}
       <div class="min-w-0 flex-1">
-        <h1 class="wiki-h1 mb-0 border-0 pb-0">{title}</h1>
+        <h1 class="wiki-h1 mb-0 border-0 pb-0">
+          <button class="cursor-pointer" onclick={() => goto("/")}
+            >{title}</button
+          >
+        </h1>
         {#if description}
           <p class="text-sm text-zinc-600 mt-1 mb-0 pl-1">{description}</p>
         {/if}
