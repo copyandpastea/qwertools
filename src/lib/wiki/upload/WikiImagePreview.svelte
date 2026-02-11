@@ -28,6 +28,6 @@
     </div>
 {:else}
     <div class={`wiki-thumb ${className}`}>
-        <div class="text-sm text-zinc-600">暂无预览</div>
+        <div class="text-sm text-zinc-600">No preview available</div>
     </div>
 {/if}

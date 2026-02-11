@@ -1,8 +1,8 @@
 <script lang="ts">
     import ImagePreview from "./WikiImagePreview.svelte";
   
-    export let label = "上传图片";
-    export let description = "支持拖拽或点击选择（PNG/JPG/WebP/GIF）。";
+    export let label = "Upload Image";
+    export let description = "Supports drag and drop or click to select (PNG/JPG/WebP/GIF).";
     export let accept = "image/png,image/jpeg,image/webp,image/gif";
     export let maxSizeMB = 5;
   
@@ -22,11 +22,11 @@
   
     function validate(f: File): string | null {
       if (accept && !accept.split(",").map(s => s.trim()).includes(f.type)) {
-        return `不支持的文件类型：${f.type || "unknown"}`;
+        return `Unsupported file types: ${f.type || "unknown"}`;
       }
       const maxBytes = maxSizeMB * 1024 * 1024;
       if (f.size > maxBytes) {
-        return `文件过大：${(f.size / 1024 / 1024).toFixed(2)}MB，最大允许 ${maxSizeMB}MB`;
+        return `File too large: ${(f.size / 1024 / 1024).toFixed(2)}MB, maximum allowed size is ${maxSizeMB}MB`;
       }
       return null;
     }
@@ -105,15 +105,15 @@
     >
       <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
         <div class="min-w-0">
-          <div class="font-semibold">拖拽图片到这里，或点击选择</div>
+          <div class="font-semibold">Drag image here, or click to select</div>
           <div class="text-xs text-zinc-600">
-            支持：{accept.replaceAll("image/", "").replaceAll(",", " / ")}，最大 {maxSizeMB}MB
+            Supported formats: {accept.replaceAll("image/", "").replaceAll(",", " / ")}, maximum 10MB {maxSizeMB}MB
           </div>
         </div>
   
         <div class="flex gap-2">
           <button type="button" class="wiki-btn wiki-btn-primary" on:click|stopPropagation={pick}>
-            选择图片
+            Select Image
           </button>
           <button
             type="button"
@@ -121,7 +121,7 @@
             on:click|stopPropagation={clear}
             disabled={!file}
           >
-            清除
+            Clear
           </button>
         </div>
       </div>
@@ -137,7 +137,7 @@
   
     {#if error}
       <div class="mt-3 wiki-notice wiki-notice-danger">
-        <b>上传失败：</b>{error}
+        <b>Upload failed:</b> {error}
       </div>
     {/if}
   
