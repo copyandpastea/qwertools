@@ -77,22 +77,4 @@
   .wiki-toc { @apply inline-block border border-zinc-300 bg-zinc-50 p-3 text-sm; }
   .wiki-toc-title { @apply font-semibold mb-2; }
   .wiki-toc-item { @apply block pl-0.5 text-blue-700 hover:underline; }
-
-  .wiki-dropzone {
-  @apply border border-zinc-300 bg-gradient-to-b from-white to-zinc-50
-         px-4 py-4 text-sm text-zinc-800;
-}
-
-.wiki-dropzone-active {
-  @apply border-blue-400 bg-blue-50/60;
-}
-
-.wiki-thumb {
-  @apply border border-zinc-300 bg-white p-2;
-}
-
-.wiki-badge {
-  @apply inline-flex items-center border border-zinc-300 bg-zinc-50 px-2 py-0.5 text-xs text-zinc-700;
-}
-
 }
