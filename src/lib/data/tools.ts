@@ -30,13 +30,13 @@ export const tools: Tool[] = [
     category: 'text',
     href: '/tools/text/diff'
   },
-  {
-    id: 'text-count',
-    name: 'Text Counter',
-    description: 'Count characters, words, lines, and paragraphs',
-    category: 'text',
-    href: '/tools/text/counter'
-  },
+  // {
+  //   id: 'text-count',
+  //   name: 'Text Counter',
+  //   description: 'Count characters, words, lines, and paragraphs',
+  //   category: 'text',
+  //   href: '/tools/text/counter'
+  // },
   // Image Tools
   {
     id: 'image-compress',
@@ -52,13 +52,13 @@ export const tools: Tool[] = [
     category: 'image',
     href: '/tools/image/cropper'
   },
-  {
-    id: 'image-convert',
-    name: 'Image Format Converter',
-    description: 'Convert images between formats (JPG, PNG, WebP, etc.)',
-    category: 'image',
-    href: '/tools/image/format-convert'
-  },
+  // {
+  //   id: 'image-convert',
+  //   name: 'Image Format Converter',
+  //   description: 'Convert images between formats (JPG, PNG, WebP, etc.)',
+  //   category: 'image',
+  //   href: '/tools/image/format-convert'
+  // },
   // Other Tools
   {
     id: 'qr-generator',
@@ -67,27 +67,27 @@ export const tools: Tool[] = [
     category: 'other',
     href: '/tools/qr-generator'
   },
-  {
-    id: 'color-picker',
-    name: 'Color Picker',
-    description: 'Pick and manage colors with various formats',
-    category: 'other',
-    href: '/tools/color-picker'
-  },
-  {
-    id: 'json-formatter',
-    name: 'JSON Formatter',
-    description: 'Format and validate JSON data',
-    category: 'other',
-    href: '/tools/json-formatter'
-  },
-  {
-    id: 'hash-generator',
-    name: 'Hash Generator',
-    description: 'Generate hash values (MD5, SHA256, SHA512, etc.)',
-    category: 'other',
-    href: '/tools/hash-generator'
-  }
+  // {
+  //   id: 'color-picker',
+  //   name: 'Color Picker',
+  //   description: 'Pick and manage colors with various formats',
+  //   category: 'other',
+  //   href: '/tools/color-picker'
+  // },
+  // {
+  //   id: 'json-formatter',
+  //   name: 'JSON Formatter',
+  //   description: 'Format and validate JSON data',
+  //   category: 'other',
+  //   href: '/tools/json-formatter'
+  // },
+  // {
+  //   id: 'hash-generator',
+  //   name: 'Hash Generator',
+  //   description: 'Generate hash values (MD5, SHA256, SHA512, etc.)',
+  //   category: 'other',
+  //   href: '/tools/hash-generator'
+  // }
 ];
 
 export const toolsByCategory = {

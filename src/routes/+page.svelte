@@ -9,52 +9,50 @@
   ];
 </script>
 
-<div class="mx-auto px-4 py-6">
-  {#each categories as category}
-    {#if category.tools.length > 0}
-      <div class="mb-8">
-        <h3 class="text-lg font-semibold text-zinc-800 mb-4">
-          {category.label}
-        </h3>
-        <div
-          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4"
-        >
-          {#each category.tools as tool}
-            <a
-              href={tool.href}
-              class="wiki-card block hover:shadow-md transition-shadow group"
-            >
-              <div class="flex flex-col h-full">
-                <div class="flex items-start gap-3 mb-2">
-                  <div
-                    class="flex-shrink-0 w-10 h-10 flex items-center justify-center bg-zinc-100 border border-zinc-300 text-zinc-700 font-bold text-sm group-hover:bg-zinc-200 transition-colors"
-                  >
-                    {tool.name.charAt(0)}
-                  </div>
-                  <div class="flex-1 min-w-0">
-                    <h4
-                      class="font-semibold text-zinc-900 mb-1 group-hover:text-blue-700 transition-colors"
-                    >
-                      {tool.name}
-                    </h4>
-                  </div>
+{#each categories as category}
+  {#if category.tools.length > 0}
+    <div class="mb-8">
+      <h3 class="text-lg font-semibold text-zinc-800 mb-4">
+        {category.label}
+      </h3>
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4"
+      >
+        {#each category.tools as tool}
+          <a
+            href={tool.href}
+            class="wiki-card block hover:shadow-md transition-shadow group"
+          >
+            <div class="flex flex-col h-full">
+              <div class="flex items-start gap-3 mb-2">
+                <div
+                  class="flex-shrink-0 w-10 h-10 flex items-center justify-center bg-zinc-100 border border-zinc-300 text-zinc-700 font-bold text-sm group-hover:bg-zinc-200 transition-colors"
+                >
+                  {tool.name.charAt(0)}
                 </div>
-                <p class="text-sm text-zinc-600 line-clamp-2 flex-1">
-                  {tool.description}
-                </p>
-                <!-- <div class="mt-3 pt-3 border-t border-zinc-200">
+                <div class="flex-1 min-w-0">
+                  <h4
+                    class="font-semibold text-zinc-900 mb-1 group-hover:text-blue-700 transition-colors"
+                  >
+                    {tool.name}
+                  </h4>
+                </div>
+              </div>
+              <p class="text-sm text-zinc-600 line-clamp-2 flex-1">
+                {tool.description}
+              </p>
+              <!-- <div class="mt-3 pt-3 border-t border-zinc-200">
                   <span class="text-xs text-blue-700 group-hover:underline">
                     使用工具 →
                   </span>
                 </div> -->
-              </div>
-            </a>
-          {/each}
-        </div>
+            </div>
+          </a>
+        {/each}
       </div>
-    {/if}
-  {/each}
-</div>
+    </div>
+  {/if}
+{/each}
 
 <style>
   .line-clamp-2 {
