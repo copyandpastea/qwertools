@@ -27,7 +27,7 @@
 	/>
 
 	<main class="flex-1">
-		<div class="wiki-content mx-auto p-6 space-y-6">
+		<div class="mx-auto p-6 space-y-6">
 			{@render children()}
 		</div>
 	</main>
