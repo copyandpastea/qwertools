@@ -94,7 +94,7 @@ export const tools: Tool[] = [
     name: 'Test Microphone',
     description: 'A tool for testing microphone functionality',
     category: 'test',
-    href: '/tools/test/-microphone'
+    href: '/tools/test/microphone'
   }
 ];
 
