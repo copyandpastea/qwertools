@@ -30,6 +30,13 @@ export const tools: Tool[] = [
     category: 'text',
     href: '/tools/text/diff'
   },
+  {
+    id: 'text-string-obfuscator',
+    name: 'String Obfuscator',
+    description: 'Obfuscate or deobfuscate text using Unicode, Hex, Base64, ROT13, and more',
+    category: 'text',
+    href: '/tools/text/string-obfuscator'
+  },
   // {
   //   id: 'text-count',
   //   name: 'Text Counter',
@@ -73,6 +80,13 @@ export const tools: Tool[] = [
     description: 'Generate QR codes for WiFi sharing so guests can scan to join instantly',
     category: 'other',
     href: '/tools/wifi-qr-generator'
+  },
+  {
+    id: 'keycode-info',
+    name: 'Keycode Info',
+    description: 'Find the JavaScript keycode, code, location and modifiers of any pressed key',
+    category: 'other',
+    href: '/tools/keycode-info'
   },
   // {
   //   id: 'color-picker',
