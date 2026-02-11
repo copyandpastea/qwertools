@@ -6,6 +6,7 @@
     compressImage,
     type CompressOptions,
   } from "$lib/features/image-compressor";
+    import WikiButton from "$lib/wiki/WikiButton.svelte";
 
   let originalFile: File | null = $state(null);
   let compressedFile: File | null = $state(null);
@@ -177,7 +178,7 @@
             id="compression-mode"
             class="wiki-select"
             bind:value={compressionMode}
-            on:change={handleModeChange}
+            onchange={handleModeChange}
             disabled={isCompressing}
           >
             <option value="auto">Auto (Recommended)</option>
@@ -286,7 +287,7 @@
         <div class="mt-6">
           <button
             class="wiki-btn wiki-btn-primary"
-            on:click={handleCompress}
+            onclick={handleCompress}
             disabled={isCompressing || !originalFile}
           >
             {#if isCompressing}
@@ -322,7 +323,7 @@
   {#if compressedFile}
     <button
       class="wiki-btn w-full mb-6"
-      on:click={scrollToResult}
+      onclick={scrollToResult}
     >
       View Results ↓
     </button>
@@ -384,7 +385,7 @@
       </div>
 
       <div class="flex gap-2">
-        <button class="wiki-btn wiki-btn-primary" on:click={downloadCompressed}>
+        <button class="wiki-btn wiki-btn-primary" onclick={downloadCompressed}>
           Download Compressed Image
         </button>
       </div>
