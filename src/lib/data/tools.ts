@@ -67,6 +67,13 @@ export const tools: Tool[] = [
     category: 'other',
     href: '/tools/qr-generator'
   },
+  {
+    id: 'wifi-qr-generator',
+    name: 'WiFi QR Code Generator',
+    description: 'Generate QR codes for WiFi sharing so guests can scan to join instantly',
+    category: 'other',
+    href: '/tools/wifi-qr-generator'
+  },
   // {
   //   id: 'color-picker',
   //   name: 'Color Picker',
