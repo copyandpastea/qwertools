@@ -24,12 +24,7 @@
             class="wiki-card block hover:shadow-md transition-shadow group"
           >
             <div class="flex flex-col h-full">
-              <div class="flex items-start gap-3 mb-2">
-                <div
-                  class="flex-shrink-0 w-10 h-10 flex items-center justify-center bg-zinc-100 border border-zinc-300 text-zinc-700 font-bold text-sm group-hover:bg-zinc-200 transition-colors"
-                >
-                  {tool.name.charAt(0)}
-                </div>
+              <div class="flex items-start gap-3">
                 <div class="flex-1 min-w-0">
                   <h4
                     class="font-semibold text-zinc-900 mb-1 group-hover:text-blue-700 transition-colors"
