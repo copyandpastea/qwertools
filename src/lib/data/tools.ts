@@ -2,7 +2,7 @@ export interface Tool {
   id: string;
   name: string;
   description: string;
-  category: 'text' | 'image' | 'other';
+  category: 'text' | 'image' | 'other' | 'test';
   icon?: string;
   href: string;
 }
@@ -87,11 +87,20 @@ export const tools: Tool[] = [
   //   description: 'Generate hash values (MD5, SHA256, SHA512, etc.)',
   //   category: 'other',
   //   href: '/tools/hash-generator'
-  // }
+  // },
+
+  {
+    id: 'test-microphone',
+    name: 'Test Microphone',
+    description: 'A tool for testing microphone functionality',
+    category: 'test',
+    href: '/tools/test/-microphone'
+  }
 ];
 
 export const toolsByCategory = {
   text: tools.filter(t => t.category === 'text'),
   image: tools.filter(t => t.category === 'image'),
-  other: tools.filter(t => t.category === 'other')
+  other: tools.filter(t => t.category === 'other'),
+  test: tools.filter(t => t.category === 'test'),
 };
