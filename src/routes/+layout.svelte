@@ -4,7 +4,7 @@
 	import favicon from "$lib/assets/favicon.svg";
 	import { tools, toolsByCategory, type Tool } from "$lib/data/tools";
 	import { page } from "$app/stores";
-    import Header from "$lib/components/layout/Header.svelte";
+	import Header from "$lib/components/layout/Header.svelte";
 	import Footer from "$lib/components/layout/Footer.svelte";
 
 	const categories = [
@@ -26,8 +26,10 @@
 		logoText="QT"
 	/>
 
-	<main class="px-4 py-4 flex-1">
-		{@render children()}
+	<main class="flex-1">
+		<div class="wiki-content mx-auto p-6 space-y-6">
+			{@render children()}
+		</div>
 	</main>
 
 	<Footer
